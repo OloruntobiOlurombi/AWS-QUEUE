@@ -47,7 +47,38 @@
 ![image](https://user-images.githubusercontent.com/40290711/170343399-44c3c395-96c9-4046-a2e4-aa3af17a671e.png)
 
 
+#### Check the details of the Existing Queue
 
+> Select a queue from the Queues dashboard to view the basic details and configuration.
 
 ![image](https://user-images.githubusercontent.com/40290711/170347575-f5ae5a12-3cfd-4200-aef7-5aacb0274160.png)
 
+> In the snapshot above, the URL is an essential field to use in your application components. In addition, you can also view details about the Lambda triggers, and the access policy. You can even monitor various metrics, such as approximate age of message, the number of messages sent/received/delayed/deleted/empty receives, and size consumed by sent messages.
+
+### Stage 4: Send and receive messages
+
+> For the selected queue, you can either send/receive messages or configure Lambda function trigger. Let's see how to send and receive messages using a Standard queue.
+
+- 1. Send message
+> Specify the message body and delay duration while sending a message. As stated earlier, you must add a delay to each new message, if your consumers need additional time to process messages. In other words, your consumer will receive the message only after the duration specified here.
+
+> You can also mention the metadata, such as timestamps, geospatial data, signatures, and identifiers in the form of Message attributes.
+
+> In a FIFO queue, there is an additional concept of message group, to ensures that the messages belonging to a particular group are processed in a strict order.
+
+![image](https://user-images.githubusercontent.com/40290711/170352097-3e67cd4a-0092-4919-ba30-3a83187eb0ca.png)
+
+- 2 Receive messages
+> A consumer cannot choose a specific message to receive. Instead, a consumer polls to receive up to 10 number of messages from the queue. The snapshot below shows a message received after polling. The default polling duration is set to 30 seconds.
+
+> Next, click on the message ID to view the message details, body, and metadata. Later, delete the message manually, if not in use.
+
+![image](https://user-images.githubusercontent.com/40290711/170352638-45b9d5dc-0b64-4aef-9eef-37a182cc2297.png)
+> Snapshot: **Poll for messages** to recieve messages
+
+![image](https://user-images.githubusercontent.com/40290711/170353230-84ee7b70-4645-4c31-b941-2ca0b79e90fe.png)
+> Snapshot: View the message details, body, and metadata.
+
+***Note***: SQS pricing is based on the count and size of messages, and the interactions with Amazon S3 and the AWS Key Management Service.
+
+# END
